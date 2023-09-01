@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Random;
 
 class Main {
   private static ArrayList<String> cities = new ArrayList<>();
@@ -20,6 +21,7 @@ class Main {
 
       if (input.equals("exit")) {
         System.out.println("Дякую за гру");
+        System.out.println("Тепер Ви краще знаєте міста України!");
         System.exit(0);
       }
 
@@ -36,7 +38,7 @@ class Main {
         continue;
       }
       
-      //Checking if entered city starts with propper letter
+      //Checking if entered city starts with proper letter
       if(lastComputerCity != null) {
         char lastComputerCityChar = lastComputerCity.charAt(lastComputerCity.length() - 1);
         char firstInputChar = input.charAt(0);
@@ -48,17 +50,22 @@ class Main {
       }
 
       char lastChar = input.charAt(input.length() - 1);
-
-      for(String city: cities) {
-        char firstChar = city.charAt(0);
-
-        if(Character.toLowerCase(lastChar) == Character.toLowerCase(firstChar)) {
-          System.out.println("Моє місто: " + city);
-          lastComputerCity = city;
-          break;
-        }
-      }      
+      lastComputerCity = getRandomCity(lastChar);
+      System.out.println("Моє місто: " + lastComputerCity);
     }
+  }
+
+  private static String getRandomCity(char firstChar) {
+    List<String> properCities = new ArrayList<>();
+    for(String city: cities) {
+      if (Character.toLowerCase(city.charAt(0)) == Character.toLowerCase(firstChar)) {
+        properCities.add(city);
+      }
+    }
+    
+    Random random = new Random();
+    int index = random.nextInt(properCities.size());
+    return properCities.get(index);
   }
   
     private static void fillCities() {
@@ -522,26 +529,7 @@ class Main {
 "Ялта",
 "Ямпіль",
 "Яремче",
-"Ясинувата",
-"Варшава",
-"Будапешт",
-"Берлін",
-"Мінськ",
-"Прага",
-"Бухарест",
-"Софія",
-"Брюссель",
-"Лондон",
-"Париж",
-"Мадрид",
-"Рим",
-"Афіни",
-"Стамбул",
-"Токіо",
-"Пекін",
-"Делі",
-"Вашингтон",
-"Оттава");
+"Ясинувата");
 
       cities.addAll(allCities);
         
