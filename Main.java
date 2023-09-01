@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Arrays;
 
 class Main {
   private static ArrayList<String> cities = new ArrayList<>();
@@ -11,7 +12,7 @@ class Main {
   }
 
   private static void gameLoop() {
-    String lastComputerCity;
+    String lastComputerCity = null;
     
     while(true) {
       String input = scanner.nextLine();
@@ -21,8 +22,21 @@ class Main {
         System.exit(0);
       }
 
+      //Checking if entered word starts with propper letter
+      if(lastComputerCity != null) {
+        char lastComputerCityChar = lastComputerCity.charAt(lastComputerCity.length() - 1);
+        char firstInputChar = input.charAt(0);
+
+      if (Character.toLowerCase(lastComputerCityChar) != Character.toLowerCase(firstInputChar)){
+        System.out.println("Ви ввели місто з неправильною першою буквою");
+        continue;
+      }
+        
+      }
+
       char lastChar = input.charAt(input.length() - 1);
 
+      
       for(String city: cities) {
         char firstChar = city.charAt(0);
 
