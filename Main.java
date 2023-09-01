@@ -24,6 +24,17 @@ class Main {
       }
 
       //Checking if entered city exists in cities list
+      boolean isCorrectCity = false;
+      for(String city: cities) {
+        if(city.equalsIgnoreCase(input)) {
+          isCorrectCity = true;
+          break;
+        }
+      }
+      if(!isCorrectCity) {
+        System.out.println("Такого міста не існує в базі данних. Введіть інше місто.");
+        continue;
+      }
       
       //Checking if entered city starts with propper letter
       if(lastComputerCity != null) {
