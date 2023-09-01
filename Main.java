@@ -11,6 +11,8 @@ class Main {
   }
 
   private static void gameLoop() {
+    String lastComputerCity;
+    
     while(true) {
       String input = scanner.nextLine();
 
@@ -26,6 +28,7 @@ class Main {
 
         if(Character.toLowerCase(lastChar) == Character.toLowerCase(firstChar)) {
           System.out.println("Моє місто: " + city);
+          lastComputerCity = city;
           break;
         }
       }      
