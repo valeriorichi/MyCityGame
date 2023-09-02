@@ -40,16 +40,31 @@ class Main {
       
       //Checking if entered city starts with proper letter
       if(lastComputerCity != null) {
-        char lastComputerCityChar = lastComputerCity.charAt(lastComputerCity.length() - 1);
+         char lastComputerCityChar;
+        
+          if (lastComputerCity.endsWith("ь") || lastComputerCity.endsWith("и") || lastComputerCity.endsWith("ц")) {
+          lastComputerCityChar = lastComputerCity.charAt(lastComputerCity.length() - 2);
+        } else {
+          lastComputerCityChar = lastComputerCity.charAt(lastComputerCity.length() - 1);
+        }
+             
         char firstInputChar = input.charAt(0);
 
         if (Character.toLowerCase(lastComputerCityChar) != Character.toLowerCase(firstInputChar)){
           System.out.println("Ви ввели місто з неправильною першою буквою");
           continue;
         }
+      }Ві
+
+      char lastChar;
+      if(input.endsWith("ь") || input.endsWith("и") || input.endsWith("ц")) {
+        lastChar = input.charAt(input.length() - 2);
+      } else {
+        lastChar = input.charAt(input.length() - 1);
       }
 
-      char lastChar = input.charAt(input.length() - 1);
+
+      
       lastComputerCity = getRandomCity(lastChar);
       System.out.println("Моє місто: " + lastComputerCity);
     }
