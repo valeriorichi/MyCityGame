@@ -64,7 +64,6 @@ class Main {
       }
 
 
-      
       lastComputerCity = getRandomCity(lastChar);
       System.out.println("Моє місто: " + lastComputerCity);
     }
