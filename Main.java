@@ -42,7 +42,7 @@ class Main {
       if(lastComputerCity != null) {
          char lastComputerCityChar;
         
-          if (lastComputerCity.endsWith("ь") || lastComputerCity.endsWith("и") || lastComputerCity.endsWith("ц")) {
+          if (lastComputerCity.endsWith("ь") || lastComputerCity.endsWith("и") || lastComputerCity.endsWith("ц") || lastComputerCity.endsWith("й")) {
           lastComputerCityChar = lastComputerCity.charAt(lastComputerCity.length() - 2);
         } else {
           lastComputerCityChar = lastComputerCity.charAt(lastComputerCity.length() - 1);
@@ -54,10 +54,10 @@ class Main {
           System.out.println("Ви ввели місто з неправильною першою буквою");
           continue;
         }
-      }Ві
+      }
 
       char lastChar;
-      if(input.endsWith("ь") || input.endsWith("и") || input.endsWith("ц")) {
+      if(input.endsWith("ь") || input.endsWith("и") || input.endsWith("ц") || input.endsWith("й")) {
         lastChar = input.charAt(input.length() - 2);
       } else {
         lastChar = input.charAt(input.length() - 1);
